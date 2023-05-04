@@ -8,6 +8,7 @@ public class JswApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JswApplication.class, args);
+		System.out.println("JSW APPLICATION");
 	}
 
 }
