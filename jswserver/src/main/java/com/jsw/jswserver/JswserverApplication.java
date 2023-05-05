@@ -1,14 +1,13 @@
-package com.jsw.jsw;
+package com.jsw.jswserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JswApplication {
+public class JswserverApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JswApplication.class, args);
-		System.out.println("JSW APPLICATION");
+		SpringApplication.run(JswserverApplication.class, args);
 	}
 
 }

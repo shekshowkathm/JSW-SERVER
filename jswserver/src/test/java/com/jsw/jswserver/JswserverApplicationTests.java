@@ -1,10 +1,10 @@
-package com.jsw.jsw;
+package com.jsw.jswserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JswApplicationTests {
+class JswserverApplicationTests {
 
 	@Test
 	void contextLoads() {
