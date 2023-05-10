@@ -14,6 +14,7 @@ public class Register {
 	private String email;
 	private String password;
 	private String number;
+	private String role;
 	public String getId() {
 		return id;
 	}
@@ -56,13 +57,17 @@ public class Register {
 	public void setNumber(String number) {
 		this.number = number;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	@Override
 	public String toString() {
 		return "Register [id=" + id + ", name=" + name + ", dob=" + dob + ", gender=" + gender + ", email=" + email
-				+ ", password=" + password + ", number=" + number + "]";
+				+ ", password=" + password + ", number=" + number + ", role=" + role + "]";
 	}
 	
 	
-	
-
 }

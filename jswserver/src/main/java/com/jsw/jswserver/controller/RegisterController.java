@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jsw.jswserver.model.Register;
 import com.jsw.jswserver.service.IRegisterService;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/register")
 public class RegisterController {

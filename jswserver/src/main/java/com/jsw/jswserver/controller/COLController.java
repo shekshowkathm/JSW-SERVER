@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jsw.jswserver.model.COleakage;
 import com.jsw.jswserver.service.ICOLeakage;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/coleakage")
 public class COLController {
