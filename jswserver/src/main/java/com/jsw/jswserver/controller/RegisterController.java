@@ -56,6 +56,15 @@ public class RegisterController {
 		return new ResponseEntity<Register>(putit,HttpStatus.OK);
 		
 	}
+	@PostMapping("/alert")
+	public String alert(@RequestBody Register register) {
+		
+		System.out.println(register);
+		 regService.sendAlert(register);
+		 return "Email send";
+	}
+	
+	
 	
 	
 }
