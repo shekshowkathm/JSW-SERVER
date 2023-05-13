@@ -56,6 +56,20 @@ public class RegisterController {
 		return new ResponseEntity<Register>(putit,HttpStatus.OK);
 		
 	}
+	@PutMapping("/updatepasswordbyemail/{email}")
+	public ResponseEntity<Register> updatePassword(@RequestBody Register register, @PathVariable String email) {
+		Register updatePassword = regService.updatePassword(register, email);
+		return new ResponseEntity<Register>(updatePassword, HttpStatus.OK);
+
+	}
+
+	@GetMapping("/retrieveregisterbyemailforpassword/{email}")
+
+	public List<Register> getEmail(@PathVariable("email") String email) {
+
+		return regService.getRegisterByEmail(email);
+
+	}
 	
 	
 }

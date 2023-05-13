@@ -9,4 +9,5 @@ import com.jsw.jswserver.model.Register;
 public interface IRegisterRepository extends 
 MongoRepository<Register, String>{
 	public List<Register> findByEmail(String email);
+	
 }

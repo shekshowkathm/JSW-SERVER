@@ -1,6 +1,7 @@
 package com.jsw.jswserver.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection  = "register")
@@ -11,6 +12,7 @@ public class Register {
 	private String name;
 	private String dob;
 	private String gender;
+	@Indexed(unique = true)
 	private String email;
 	private String password;
 	private String number;

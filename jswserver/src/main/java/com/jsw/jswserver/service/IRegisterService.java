@@ -11,5 +11,7 @@ public interface IRegisterService {
 	public Register getByID(String regid);
 	public void deleteByID(String regid);
 	public Register putAnRegister(Register register);
+	public Register updatePassword(Register register, String email);
+	public List<Register> getRegisterByEmail(String email);
 
 }

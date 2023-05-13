@@ -52,5 +52,20 @@ public class RegisterService implements IRegisterService{
 		Register putit=regRepo.save(register);
 		return putit;
 	}
+	@Override
+	public Register updatePassword(Register register, String email) {
+		Register Obj = regRepo.findByEmail(email).get(0);
+		Obj.setPassword(passwordencoder.encode(register.getPassword()));
+		return regRepo.save(Obj);
+
+	}
+	@Override
+	public List<Register> getRegisterByEmail(String email) {
+		if (regRepo.findByEmail(email) != null) {
+			return regRepo.findByEmail(email);
+		}
+		return null;
+
+	}
 
 }
