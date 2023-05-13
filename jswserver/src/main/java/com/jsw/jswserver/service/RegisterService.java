@@ -8,8 +8,13 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import com.jsw.jswserver.model.GasWarn;
 import com.jsw.jswserver.model.Register;
+import com.jsw.jswserver.repository.IGasWarnRepository;
 import com.jsw.jswserver.repository.IRegisterRepository;
+import java.time.format.DateTimeFormatter;
 
 
 
@@ -18,6 +23,7 @@ public class RegisterService implements IRegisterService{
 	
 	@Autowired
 	private IRegisterRepository regRepo;
+	private IGasWarnRepository gaswarnRepo;
 	
 	@Autowired
 	private PasswordEncoder passwordencoder;
@@ -48,7 +54,6 @@ public class RegisterService implements IRegisterService{
 
 	@Override
 	public Register getByID(String regid) {
-		// TODO Auto-generated method stub
 		return regRepo.findById(regid).get();
 	}
 
@@ -73,13 +78,29 @@ public class RegisterService implements IRegisterService{
 
 		}
 	@Override
-	public void sendAlert(Register register) {
-		String subject="Warning!!";
-		String text="High PPM alert ";
-		sendEmail(register.getEmail(),subject,text);
+	public void sendAlert(GasWarn gasWarn) {
+		System.out.println(gasWarn.getPpm());
+		System.out.println(gasWarn.getLocation());
+		System.out.println(gasWarn.getEmail());
 		
+		// Get the current local time
+        LocalTime currentTime = LocalTime.now();
+        //get current date
+        LocalDate currentDate = LocalDate.now();
+
+        // Print the current local time
+        System.out.println("Current local time: " + currentTime);
+        
+        String currentTimeString = currentTime.toString();
+        
+        gasWarn.setTime(currentTimeString);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattedDate = currentDate.format(formatter);
+        gasWarn.setDate(formattedDate);
 		
-		
+		String subject="🚨🚨🚨🚨🚨🚨🚨 Warning!!🚨🚨🚨🚨🚨🚨🚨🚨🚨";
+		String text="High PPM alert ☠☠☠☠"+gasWarn.getPpm()+"☠☠☠☠☠ at the location  🧭🧭🧭" +gasWarn.getLocation()+"🧭🧭🧭" +  " 🕰🕰🕰🕰🕰🕰🕰 "+""+gasWarn.getTime()+"🕰🕰🕰🕰🕰🕰🕰" +""+ " 📆📆📆📆📆📆📆"+""+gasWarn.getDate() +" 📆📆📆📆📆📆📆 ";
+		sendEmail(gasWarn.getEmail(),subject,text);
 	}
 
 }

@@ -36,7 +36,9 @@ public class SecurityConfig {
             "/register/delete/{rid}",
             "/register/put/{rid}",
             "/authenticate/login",
-            "/register/alert"
+            "/register/alert",
+            "/gaswarn/save",
+            "/gaswarn/showAll"
             
     };
 
