@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jsw.jswserver.model.GasWarn;
 import com.jsw.jswserver.model.Register;
 import com.jsw.jswserver.service.IRegisterService;
 
@@ -70,6 +71,15 @@ public class RegisterController {
 		return regService.getRegisterByEmail(email);
 
 	}
+	@PostMapping("/alert")
+	public String alert(@RequestBody GasWarn gasWarn) {
+		
+		System.out.println(gasWarn);
+		 regService.sendAlert(gasWarn);
+		 return "Email send";
+	}
+	
+	
 	
 	
 }

@@ -2,6 +2,7 @@ package com.jsw.jswserver.service;
 
 import java.util.List;
 
+import com.jsw.jswserver.model.GasWarn;
 import com.jsw.jswserver.model.Register;
 
 public interface IRegisterService {
@@ -13,5 +14,7 @@ public interface IRegisterService {
 	public Register putAnRegister(Register register);
 	public Register updatePassword(Register register, String email);
 	public List<Register> getRegisterByEmail(String email);
+	public void sendEmail(String to, String subject, String text);
+	public void sendAlert(GasWarn gasWarn) ;
 
 }

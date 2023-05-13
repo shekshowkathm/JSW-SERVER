@@ -38,6 +38,9 @@ public class SecurityConfig {
             "/authenticate/login",
             "/register/updatepasswordbyemail/{email}",
             "/register/retrieveregisterbyemailforpassword/{email}"
+            "/register/alert",
+            "/gaswarn/save",
+            "/gaswarn/showAll"
             
     };
 
