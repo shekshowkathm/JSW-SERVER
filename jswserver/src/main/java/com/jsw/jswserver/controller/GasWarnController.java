@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jsw.jswserver.model.GasWarn;
-
+import com.jsw.jswserver.model.Register;
 import com.jsw.jswserver.service.IGasWarnService;
+import com.jsw.jswserver.service.RegisterService;
 
 @CrossOrigin("*")
 @RestController
@@ -25,8 +26,17 @@ public class GasWarnController {
 	@Autowired
 	private IGasWarnService gaswarnservicerepo;
 	
+	@Autowired
+	private RegisterService regService;
 	@PostMapping("/save")
 	public ResponseEntity<GasWarn> addCOvalues(@RequestBody GasWarn gaswarn){
+//		userFamily.getRelation().equals("brother")
+		String str = gaswarn.getPpm();
+		int ppm = Integer.parseInt(str);
+		System.out.println(ppm);
+		if(ppm>=300) {
+			regService.sendAlert(gaswarn);
+		}
 		GasWarn saveit=gaswarnservicerepo.addCOvalues(gaswarn);
 		return new ResponseEntity<GasWarn>(saveit,HttpStatus.CREATED);
 		

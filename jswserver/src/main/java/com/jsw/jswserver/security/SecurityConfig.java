@@ -37,7 +37,7 @@ public class SecurityConfig {
             "/register/put/{rid}",
             "/authenticate/login",
             "/register/updatepasswordbyemail/{email}",
-            "/register/retrieveregisterbyemailforpassword/{email}"
+            "/register/retrieveregisterbyemailforpassword/{email}",
             "/register/alert",
             "/gaswarn/save",
             "/gaswarn/showAll"
